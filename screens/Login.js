@@ -25,7 +25,7 @@ import { Ionicons } from '@expo/vector-icons';
       }
   
       try {
-        const response = await axios.post('http://192.168.0.110:8800/login', {
+        const response = await axios.post('http://192.168.0.112:8800/login', {
           username: username,
           password: password
         });
@@ -67,7 +67,7 @@ import { Ionicons } from '@expo/vector-icons';
           secureTextEntry={!showPassword}
           placeholder="Password"
           value={password}
-          onChangeText={setPassword}
+          onChangeText={(text) => setPassword(text)}
         />
         <TouchableOpacity onPress={toggleShowPassword} style={styles.toggleButton}>
           <Ionicons

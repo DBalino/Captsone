@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Text, ImageBackground, Alert, TouchableOpacity } from 'react-native';
 import axios from 'axios';
+import { Ionicons } from '@expo/vector-icons';
 
 const Registration = ({ navigation }) => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,12 @@ const Registration = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
+  const toggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+  
   const handleRegistration = async () => {
     if (!username || !fullname || !email || !password) {
       Alert.alert('Missing Fields', 'Please fill in all fields.');
@@ -16,7 +22,7 @@ const Registration = ({ navigation }) => {
     }
   
     axios
-      .post('http://192.168.0.110:8800/register ', {
+      .post('http://192.168.0.112:8800/register ', {
         username,
         fullname,
         email,
@@ -36,9 +42,9 @@ const Registration = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-	  <ImageBackground source={require('../assets/tng.png')}
+    <ImageBackground source={require('../assets/registration.png')}
       style={styles.backgroundImage}>
-	
+  
     <View style={styles.content}>
       <TextInput
         style={styles.input}
@@ -61,22 +67,40 @@ const Registration = ({ navigation }) => {
         onChangeText={(text) => setEmail(text)}
         autoCapitalize={"none"}
       />
+      <View style={styles.passwordContainer}>
       <TextInput
-        style={styles.input}
+        style={styles.passwordInput}
+        secureTextEntry={!showPassword}
+        placeholder="Password"
         value={password}
-        placeholder={"Password"}
-        Icon name="eye" size={30} color="#888sad"
-        secureTextEntry={passwordVisibility}
         onChangeText={(text) => setPassword(text)}
       />
+       <TouchableOpacity onPress={toggleShowPassword} style={styles.toggleButton}>
+          <Ionicons
+            name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+            size={24}
+            color="black"
+          />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.CpasswordContainer}>
       <TextInput
-        style={styles.input}
-        value={confirmPassword}
-        placeholder={"Confirm Password"}
-        Icon name="eye" size={30} color="#888sad"
-        secureTextEntry={passwordVisibility}
-        onChangeText={(text) => setConfirmPassword(text)}
-      />
+        style={styles.passwordInput}
+        secureTextEntry={!showPassword}
+        placeholder="Confirm Password"
+        value={password}
+        
+        onChangeText={(text) => setConfirmPassword(text)}     
+ />
+      <TouchableOpacity onPress={toggleShowPassword} style={styles.toggleButton}>
+          <Ionicons
+            name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+            size={24}
+            color="black"
+          />
+        </TouchableOpacity>
+      </View>
 
       <TouchableOpacity style={styles.button}  onPress={handleRegistration}>
        <Text style={styles.signup}>Register</Text>
@@ -125,6 +149,37 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     marginTop: 5,
   },
+  passwordContainer: {
+    width: '80%',
+    height: 49,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderColor: '#009EFF',
+    borderRadius: 10,
+    marginBottom: 20,
+    paddingHorizontal: 25,
+    marginTop: 5,
+  },
+  CpasswordContainer: {
+    width: '80%',
+    height: 49,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderColor: '#009EFF',
+    borderRadius: 10,
+    marginBottom: 20,
+    paddingHorizontal: 25,
+    marginTop: 5,
+  },
+  passwordInput: {
+    flex: 1,
+    paddingVertical: 12,
+  },
+  toggleButton: {
+    padding: 10,
+  },
   button: {
     backgroundColor: '#009EFF',
     width: '65%',
@@ -148,5 +203,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   }
 });
+
+
 
 export default Registration;
