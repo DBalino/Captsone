@@ -10,16 +10,46 @@ const Registration = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+ 
 
   const toggleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
+
+  const validEmail = (email) => {
+    const emailRegex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  const validPassword = (password) =>{
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+    const minLength = 8;
+
+    return passwordRegex.test(password) && password.length >= minLength;
+  }
   
   const handleRegistration = async () => {
     if (!username || !fullname || !email || !password) {
-      Alert.alert('Missing Fields', 'Please fill in all fields.');
+      setError('All fields are required.');
+      return;
+    } 
+    if (!validEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+     
+    }
+    if (!validPassword(password)){
+      setError(
+        'Password must contain at least one uppercase letter, one lowercase letter, one digit, and have a minimum length of 8 characters.'
+      );
       return;
     }
+    if (password !== confirmPassword){
+      setError('Passwords do not mactch.');
+      return;
+    }
+    
   
     axios
       .post('http://192.168.0.112:8800/register ', {
@@ -38,8 +68,9 @@ const Registration = ({ navigation }) => {
         console.error('Error registering user:', error);
       
       });
+      setError('')
   };
-
+ 
   return (
     <View style={styles.container}>
     <ImageBackground source={require('../assets/registration.png')}
@@ -67,6 +98,7 @@ const Registration = ({ navigation }) => {
         onChangeText={(text) => setEmail(text)}
         autoCapitalize={"none"}
       />
+     
       <View style={styles.passwordContainer}>
       <TextInput
         style={styles.passwordInput}
@@ -89,10 +121,10 @@ const Registration = ({ navigation }) => {
         style={styles.passwordInput}
         secureTextEntry={!showPassword}
         placeholder="Confirm Password"
-        value={password}
+        value={confirmPassword}
         
         onChangeText={(text) => setConfirmPassword(text)}     
- />
+      />
       <TouchableOpacity onPress={toggleShowPassword} style={styles.toggleButton}>
           <Ionicons
             name={showPassword ? 'eye-off-outline' : 'eye-outline'}
@@ -102,6 +134,8 @@ const Registration = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
+      {error ? <Text style={styles.error}>{error}</Text> : null}
+      
       <TouchableOpacity style={styles.button}  onPress={handleRegistration}>
        <Text style={styles.signup}>Register</Text>
       </TouchableOpacity>
@@ -201,7 +235,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20,
-  }
+  },
+  error: {
+    color: 'red',
+    marginBottom: 10,
+  },
 });
 
 
