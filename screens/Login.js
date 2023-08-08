@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState('');
 
     const toggleShowPassword = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -15,12 +16,12 @@ import { Ionicons } from '@expo/vector-icons';
     const handleLogin = async () => { 
       
       if (!username.trim()) {
-        Alert.alert('Invalid Input', 'Please fill out the missing fields.');
+        setError('Invalid Input', 'Please fill out the missing fields.');
         return;
       }
       
       if (!password.trim()) {
-        Alert.alert('Invalid Input', 'Please fill out the missng fields.');
+        setErrort('Invalid Input', 'Please fill out the missng fields.');
         return;
       }
   
@@ -77,6 +78,8 @@ import { Ionicons } from '@expo/vector-icons';
           />
         </TouchableOpacity>
       </View>
+
+      {error ? <Text style={styles.error}>{error}</Text> : null}
 
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
       <Text style={styles.loginButtonText}>LOGIN</Text>
@@ -160,6 +163,11 @@ import { Ionicons } from '@expo/vector-icons';
     },
     signup:{
       color: '#009EFF',
-    }
+    },
+    error: {
+      color: 'red',
+      marginBottom: 10,
+    },
   });
+  
   export default Login;
