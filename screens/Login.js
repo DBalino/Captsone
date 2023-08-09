@@ -21,12 +21,12 @@ import { Ionicons } from '@expo/vector-icons';
       }
       
       if (!password.trim()) {
-        setErrort('Invalid Input', 'Please fill out the missng fields.');
+        setError('Invalid Input', 'Please fill out the missng fields.');
         return;
       }
   
       try {
-        const response = await axios.post('http://192.168.0.112:8800/login', {
+        const response = await axios.post('http://192.168.1.7:8800/login', {
           username: username,
           password: password
         });
@@ -37,12 +37,11 @@ import { Ionicons } from '@expo/vector-icons';
           navigation.navigate('Bottom Bar');
         } 
         else {
-         Alert.alert('Login Failed', 'Invalid username or password.');
+         setError('Invalid username or password.');
         }
 
       } catch (error) {
         
-        Alert.alert('Login Failed', 'Invalid username or password.');
       }
     };
 
