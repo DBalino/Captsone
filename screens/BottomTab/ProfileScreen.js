@@ -7,7 +7,7 @@ const ProfileScreen = () => {
   return (
     <View style={styles.container}>
     <Image
-      source={require('../assets/profile.png')} 
+      source={require('../../assets/profile.png')} 
       style={styles.image}
     />
      <Text style={styles.name}>Zion Dayle L. Malinao</Text>

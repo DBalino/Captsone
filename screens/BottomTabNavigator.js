@@ -2,13 +2,11 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import Homepage from '../screens/Homepage';
-import PictureScreen from '../screens/PictureScreen';
-import CartScreen from '../screens/CartScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import StartLive from '../screens/StartLive';
-
-
+import Homepage from './BottomTab/Homepage';
+import ProfileScreen from './BottomTab/ProfileScreen';
+import CartScreen from './BottomTab/CartScreen';
+import StartLive from './BottomTab/StartLive';
+import PurchaseHistoryScreen from './BottomTab/PurchaseHistoryScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +19,7 @@ const BottomTabNavigator = () => {
 
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'Picture') {
+          } else if (route.name === 'History') {
             iconName = 'photo-camera';
           } else if (route.name === 'Cart') {
             iconName = 'shopping-cart';
@@ -33,18 +31,15 @@ const BottomTabNavigator = () => {
           return <MaterialIcons name={iconName} size={size} color={color} />;
         },
       })}
-      tabBarOptions={{
-        activeTintColor: '#009EFF', 
-        inactiveTintColor: 'gray', 
-      }}
     >
       <Tab.Screen options={{headerShown: false}} name="Home" component={Homepage} />
-      <Tab.Screen options={{headerShown: false}}name="Picture" component={PictureScreen} />
+      <Tab.Screen options={{headerShown: false}}name="History" component={PurchaseHistoryScreen} />
       <Tab.Screen options={{headerShown: false}} name="Start Live" component={StartLive}/>
       <Tab.Screen options={{headerShown: false}} name="Profile" component={ProfileScreen} />
       <Tab.Screen options={{headerShown: false}} name="Cart" component={CartScreen} />
     </Tab.Navigator>
   );
 };
+
 
 export default BottomTabNavigator;

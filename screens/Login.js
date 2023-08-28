@@ -1,40 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import {StyleSheet,TextInput, TouchableOpacity, View, icon ,Alert, ImageBackground, Text} from 'react-native';
 import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
 
     const Login = ({navigation}) => {
+    
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
-
+    
     const toggleShowPassword = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);
     };
-    
+   
     const handleLogin = async () => { 
       
       if (!username.trim()) {
         setError('Invalid Input', 'Please fill out the missing fields.');
         return;
       }
-      
+    
       if (!password.trim()) {
         setError('Invalid Input', 'Please fill out the missng fields.');
         return;
       }
   
       try {
-        const response = await axios.post('http://192.168.1.7:8800/login', {
+        const response = await axios.post('http://192.168.135.188:8800/login', {
           username: username,
           password: password
+          
         });
 
         if(response.data.success){
           const token = response.data.token;
-          Alert.alert('Welcome to ThriftNGo', 'Happy Thrifting!');
+          Alert.alert('Welcome to ThirftNGo', `Happy Thrifting!  ${username} !`);
           navigation.navigate('Bottom Bar');
+          
         } 
         else {
          setError('Invalid username or password.');
@@ -48,7 +51,7 @@ import { Ionicons } from '@expo/vector-icons';
     const navigateToOtherScreen = () => { 
         navigation.navigate('Registration Page');
     }
-  
+    
     return (
       <View style={styles.container} >
       <ImageBackground source={require('../assets/tng.png')}
@@ -96,7 +99,7 @@ import { Ionicons } from '@expo/vector-icons';
      
     );
   };
-  
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -105,7 +108,6 @@ import { Ionicons } from '@expo/vector-icons';
       flex: 1,
       resizeMode: 'cover',
       justifyContent: 'center',
-      
     },
     content: {
       flex: 1,

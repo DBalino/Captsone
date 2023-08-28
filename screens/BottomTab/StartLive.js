@@ -6,13 +6,13 @@ const StartLive = () => {
   return (
     <View style={styles.navbar} /* Top Nav Bar Content */>
     <TouchableOpacity style={styles.hamburger}>
-      <Image source={require('../assets/hamburger.png')} style={styles.hamburgerIcon} />
+      <Image source={require('../../assets/hamburger.png')} style={styles.hamburgerIcon} />
     </TouchableOpacity>
 
-    <Image source={require('../assets/TNG_L.png')} style={styles.logo} />
+    <Image source={require('../../assets/TNG_L.png')} style={styles.logo} />
     
     <TouchableOpacity style={styles.chat}>
-      <Image source={require('../assets/chat.png')} style={styles.chatIcon} />
+      <Image source={require('../../assets/chat.png')} style={styles.chatIcon} />
     </TouchableOpacity>
     </View>
 

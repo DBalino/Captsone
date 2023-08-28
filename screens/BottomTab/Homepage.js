@@ -19,13 +19,13 @@ const Homepage = () => {
     <SafeAreaView style={styles.scroll}>
     <View style={styles.navbar}>
       <TouchableOpacity style={styles.hamburger}>
-        <Image source={require('../assets/hamburger.png')} style={styles.hamburgerIcon} />
+        <Image source={require('../../assets/hamburger.png')} style={styles.hamburgerIcon} />
       </TouchableOpacity>
 
-      <Image source={require('../assets/TNG_L.png')} style={styles.logo} />
+      <Image source={require('../../assets/TNG_L.png')} style={styles.logo} />
       
       <TouchableOpacity style={styles.chat}>
-        <Image source={require('../assets/chat.png')} style={styles.chatIcon} />
+        <Image source={require('../../assets/chat.png')} style={styles.chatIcon} />
       </TouchableOpacity>
 
       </View>
@@ -41,10 +41,10 @@ const Homepage = () => {
 
       <View style={styles.category}>
           <View style={styles.row}>
-            <Image source={require('../assets/shus.png')} style={styles.image} />
-            <Image source={require('../assets/damit.png')} style={styles.image} />
-            <Image source={require('../assets/sando.png')} style={styles.image} />
-            <Image source={require('../assets/undies.png')} style={styles.image} />
+            <Image source={require('../../assets/shus.png')} style={styles.image} />
+            <Image source={require('../../assets/damit.png')} style={styles.image} />
+            <Image source={require('../../assets/sando.png')} style={styles.image} />
+            <Image source={require('../../assets/undies.png')} style={styles.image} />
           </View>
         </View>
       </ScrollView>
@@ -57,10 +57,10 @@ const Homepage = () => {
       <ScrollView>
         <View style={styles.category}>
           <View style={styles.row}>
-            <Image source={require('../assets/sandobata.png')} style={styles.image} />
-            <Image source={require('../assets/bagbata.png')} style={styles.image} />
-            <Image source={require('../assets/shusbata.png')} style={styles.image} />
-            <Image source={require('../assets/shortbata.png')} style={styles.image} />
+            <Image source={require('../../assets/sandobata.png')} style={styles.image} />
+            <Image source={require('../../assets/bagbata.png')} style={styles.image} />
+            <Image source={require('../../assets/shusbata.png')} style={styles.image} />
+            <Image source={require('../../assets/shortbata.png')} style={styles.image} />
           </View>    
         </View>
       </ScrollView>
@@ -74,9 +74,9 @@ const Homepage = () => {
       <ScrollView>
         <View style={styles.category}>
           <View style={styles.row}>
-            <Image source={require('../assets/medyas.png')} style={styles.image} />
-            <Image source={require('../assets/socksbata.png')} style={styles.image} />
-            <Image source={require('../assets/medyasmatanda.png')} style={styles.image} />
+            <Image source={require('../../assets/medyas.png')} style={styles.image} />
+            <Image source={require('../../assets/socksbata.png')} style={styles.image} />
+            <Image source={require('../../assets/medyasmatanda.png')} style={styles.image} />
           </View>
         </View>
       </ScrollView>
@@ -90,9 +90,9 @@ const Homepage = () => {
       <ScrollView>
         <View style={styles.category}>
           <View style={styles.row}>
-            <Image source={require('../assets/necklace.png')} style={styles.image} />
-            <Image source={require('../assets/bag.png')} style={styles.image} />
-            <Image source={require('../assets/relo.png')} style={styles.image} />
+            <Image source={require('../../assets/necklace.png')} style={styles.image} />
+            <Image source={require('../../assets/bag.png')} style={styles.image} />
+            <Image source={require('../../assets/relo.png')} style={styles.image} />
           </View>
         </View>
       </ScrollView>
@@ -230,5 +230,3 @@ const styles = StyleSheet.create({
 });
 
 export default Homepage;
-
-

@@ -2,10 +2,11 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-const PictureScreen = () => {
+
+const PurchaseHistoryScreen = () => {
   return (
     <Text>Picture</Text>
   );
 };
 
-export default PictureScreen;
+export default PurchaseHistoryScreen;

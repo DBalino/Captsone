@@ -10,11 +10,12 @@ const Registration = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
   const [error, setError] = useState('');
  
-
   const toggleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
+    setShowPassword1((prevShowPassword1) => !prevShowPassword1);
   };
 
   const validEmail = (email) => {
@@ -30,10 +31,16 @@ const Registration = ({ navigation }) => {
   }
   
   const handleRegistration = async () => {
+   
+  
     if (!username || !fullname || !email || !password) {
       setError('All fields are required.');
       return;
     } 
+    if (username.length <5){
+      setError('Username too short');
+      return;
+    }
     if (!validEmail(email)) {
       setError('Please enter a valid email address.');
       return;
@@ -41,7 +48,8 @@ const Registration = ({ navigation }) => {
     }
     if (!validPassword(password)){
       setError(
-        'Password must contain at least one uppercase letter, one lowercase letter, one digit, and have a minimum length of 8 characters.'
+        'Password must be 8 characters, an uppercase and digits.'
+        
       );
       return;
     }
@@ -49,10 +57,10 @@ const Registration = ({ navigation }) => {
       setError('Passwords do not mactch.');
       return;
     }
+ 
     
-  
     axios
-      .post('http://192.168.1.7:8800/register ', {
+      .post('http://192.168.135.188:8800/register ', {
         username,
         fullname,
         email,
@@ -107,19 +115,14 @@ const Registration = ({ navigation }) => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-       <TouchableOpacity onPress={toggleShowPassword} style={styles.toggleButton}>
-          <Ionicons
-            name={showPassword ? 'eye-off-outline' : 'eye-outline'}
-            size={24}
-            color="black"
-          />
-        </TouchableOpacity>
+      
+      
       </View>
 
       <View style={styles.CpasswordContainer}>
       <TextInput
         style={styles.passwordInput}
-        secureTextEntry={!showPassword}
+        secureTextEntry={!showPassword1}
         placeholder="Confirm Password"
         value={confirmPassword}
         
@@ -127,7 +130,7 @@ const Registration = ({ navigation }) => {
       />
       <TouchableOpacity onPress={toggleShowPassword} style={styles.toggleButton}>
           <Ionicons
-            name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+            name={showPassword1 ? 'eye-off-outline' : 'eye-outline'}
             size={24}
             color="black"
           />
@@ -170,7 +173,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 160,
+    paddingTop: 260,
+    marginTop: 25,
   },
   input: {
     width: '80%',
@@ -179,9 +183,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#009EFF',
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 15,
     paddingHorizontal: 25,
-    marginTop: 5,
   },
   passwordContainer: {
     width: '80%',
@@ -238,10 +241,7 @@ const styles = StyleSheet.create({
   },
   error: {
     color: 'red',
-    marginBottom: 10,
   },
 });
-
-
 
 export default Registration;

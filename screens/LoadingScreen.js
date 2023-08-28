@@ -2,10 +2,8 @@ import React from 'react';
 import { View, StyleSheet, ImageBackground, TouchableOpacity, Text} from 'react-native';
 import LottieView from 'lottie-react-native';
 
-
     const LoadingScreen = ({navigation}) => {
-      
-
+   
       return (
         <View style={styles.LScreen}>
           <ImageBackground source={require('../assets/loadingscreen.png')}
@@ -22,6 +20,9 @@ import LottieView from 'lottie-react-native';
         
         </View>
       );
+    };
+    LoadingScreen.navigationOptions = {
+      drawerLabel: () => null, // Hide sidebar label for this screen
     };
     const styles = StyleSheet.create({
       LScreen:{
@@ -45,8 +46,6 @@ import LottieView from 'lottie-react-native';
        flex: 1,
        justifyContent: 'center',
        alignItems: 'center'
-
-
       }
 
 
