@@ -27,7 +27,7 @@ import { Ionicons } from '@expo/vector-icons';
       }
   
       try {
-        const response = await axios.post('http://192.168.135.188:8800/login', {
+        const response = await axios.post('http://192.168.100.193:8800/login', {
           username: username,
           password: password
           

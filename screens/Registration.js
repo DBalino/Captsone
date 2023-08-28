@@ -60,7 +60,7 @@ const Registration = ({ navigation }) => {
  
     
     axios
-      .post('http://192.168.135.188:8800/register ', {
+      .post('http://192.168.100.193/register ', {
         username,
         fullname,
         email,
