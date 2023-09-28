@@ -137,7 +137,7 @@ const Registration = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      {error ? <Texxt style={styles.error}>{error}</Texxt> : null}
+      {error ? <Text style={styles.error}>{error}</Text> : null}
       
       <TouchableOpacity style={styles.button}  onPress={handleRegistration}>
        <Text style={styles.signup}>Register</Text>

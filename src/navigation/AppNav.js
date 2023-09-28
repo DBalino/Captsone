@@ -24,7 +24,7 @@ function AppNav(){
 
     <NavigationContainer>
         <Stack.Navigator>
-
+            <Stack.Screen options={{headerShown: false}} name="Auth Stack" component={AuthStack}/>
             <Stack.Screen options={{headerShown: false}} name="App Stack" component={AppStack} />
             <Stack.Screen options={{headerShown: false}} name="My Shop" component={Myshop} />
             <Stack.Screen options={{headerShown: false}} name="Live Section" component={LiveSection} />
