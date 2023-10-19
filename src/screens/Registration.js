@@ -60,7 +60,7 @@ const Registration = ({ navigation }) => {
  
     
     axios
-      .post('http://192.168.100.193/register ', {
+      .post("http://192.168.84.188/register ", {
         username,
         fullname,
         email,
@@ -68,13 +68,11 @@ const Registration = ({ navigation }) => {
       })
       .then((response) => {
         console.log(response.data.message);
-        Alert.alert('Success', 'Registration successful!');
-        navigation.navigate('Login Page');
-     
+        Alert.alert("Success", "Registration successful!");
+        navigation.navigate("Login Page");
       })
       .catch((error) => {
-        console.error('Error registering user:', error);
-      
+        console.error("Error registering user:", error);
       });
       setError('')
   };

@@ -8,20 +8,15 @@ import StartLive from '../screens/StartLive';
 import ProfileScreen from '../screens/ProfileScreen';
 import CartScreen from '../screens/CartScreen';
 import LiveSection from '../screens/LiveSection';
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
-
 import livebutton from '../../assets/livebutton.jpg'
 
-  const toggleBottomNavBar = () => {
-    setBottomNavBarVisible(!isBottomNavBarVisible);
-  }
 const Tab = createBottomTabNavigator();
 
 
 const TabNavigator = ({navigation}) => {
-  const showLiveSection = false;
+
     return (
       <Tab.Navigator
         screenOptions={{
@@ -46,6 +41,7 @@ const TabNavigator = ({navigation}) => {
           name="History"
           component={PurchaseHistoryScreen}
           options={{
+            headerShown: true,
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="cart-outline" color={color} size={30} />
             ),
@@ -87,9 +83,10 @@ const TabNavigator = ({navigation}) => {
         />
 
         <Tab.Screen
-          name="Cart"
+          name="Shopping Cart"
           component={CartScreen}
           options={{
+            headerShown: true,
             tabBarIcon: ({ color, size }) => (
               <Feather name="shopping-bag" color={color} size={size} />
             ),

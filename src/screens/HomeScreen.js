@@ -32,22 +32,39 @@ return(
         we think you'll like
       </Text>
     </Text>
-
   
+
+
     <ScrollView horizontal={true} /* First Category */>
       <ScrollView>
-
       <View style={styles.category}>
-        <TouchableOpacity onPress = {()=> navigation.navigate('Live Section')}>
-          <View style={styles.row}>
+        <View style={styles.row}>
+
+          <TouchableOpacity onPress = {()=> navigation.navigate('Live Section')}>
             <Image source={require('../../assets/333.png')} style={styles.liveImage} />
-            <Image source={require('../../assets/22.png')} style={styles.liveImage} />
-            <Image source={require('../../assets/33.png')} style={styles.liveImage} />
-            <Image source={require('../../assets/111.png')} style={styles.liveImage} />
-            <Image source={require('../../assets/222.png')} style={styles.liveImage} />
-            <Image source={require('../../assets/11.png')} style={styles.liveImage} />
-          </View>
           </TouchableOpacity>
+
+          <TouchableOpacity onPress = {()=> navigation.navigate('Live Section')}>
+            <Image source={require('../../assets/22.png')} style={styles.liveImage} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress = {()=> navigation.navigate('Live Section')}>
+            <Image source={require('../../assets/33.png')} style={styles.liveImage} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress = {()=> navigation.navigate('Live Section')}>
+            <Image source={require('../../assets/111.png')} style={styles.liveImage} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress = {()=> navigation.navigate('Live Section')}>
+            <Image source={require('../../assets/222.png')} style={styles.liveImage} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress = {()=> navigation.navigate('Live Section')}>
+            <Image source={require('../../assets/11.png')} style={styles.liveImage} />
+          </TouchableOpacity>
+
+        </View>
         </View>
       </ScrollView>
     </ScrollView>
@@ -120,7 +137,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#ffffff',
-    paddingTop: 125,
+    paddingTop: 100,
     marginTop:30,
     paddingLeft: 90,
     paddingRight: 90,
@@ -173,6 +190,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
+    paddingBottom: 40,
   },
   pictureContainer: {
     width: 54,

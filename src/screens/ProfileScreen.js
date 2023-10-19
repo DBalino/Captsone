@@ -21,7 +21,7 @@ const ProfileScreen = ({ navigation }) => {
           <Image
             source={require("../../assets/profile.png")}
             style={{
-              marginLeft: 120,
+              marginLeft: 105,
               width: 150,
               height: 150,
               borderRadius: 100,
@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 70,
     borderBottomRightRadius: 70,
     justifyContent: "flex-start",
-    marginTop: -180,
-    width: 400,
+    marginTop: -130,
+    width: 360,
     elevation: 10,
     shadowColor: "#000",
     shadowOpacity: 0.5,

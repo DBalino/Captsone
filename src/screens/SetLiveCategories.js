@@ -14,11 +14,18 @@ import {
 import BottomSheet from "react-native-simple-bottom-sheet";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const StartLiveCategories = () => {
-     const [itemName, setItemName] = useState("");
-     const [itemCode, setItemCode] = useState("");
-     const [price, setPrice] = useState("");
+     const [itemName1, setItemName1] = useState("");
+     const [itemName2, setItemName2] = useState("");
+     const [itemName3, setItemName3] = useState("");
+     const [itemCode1, setItemCode1] = useState("");
+     const [itemCode2, setItemCode2] = useState("");
+     const [itemCode3, setItemCode3] = useState("");
+     const [itemPrice1, setPrice1] = useState("");
+     const [itemPrice2, setPrice2] = useState("");
+     const [itemPrice3, setPrice3] = useState("");
      const [isScrolled, setIsScrolled] = useState(false);
      const bottomSheetRef = React.useRef(null);
 
@@ -48,57 +55,132 @@ const StartLiveCategories = () => {
           </TouchableOpacity>
           <Text style={styles.text}>Start Live</Text>
         </View>
-        <View style={styles.MotherHeader}>
-          <Text style={styles.header}> New item </Text>
 
-          <View style={styles.selectCateg}>
-            <Text style={styles.setCateg}>Select Categories </Text>
-            <Icon
-              name="navigate-next"
-              size={30}
-              color={"white"}
-              style={{ marginLeft: -5, marginTop: -5 }}
-            />
-          </View>
-        </View>
-        <View style={styles.items}>
-          <View style={styles.itemCateg}>
-            <Text style={styles.itemText}>Item Category</Text>
-            <Icon
-              name="chevron-right"
-              size={30}
-              color={"white"}
-              style={{ marginTop: -5 }}
-            />
-          </View>
-          <View sylte={styles.itemInput}>
-            <View style={styles.inputColumn}>
-              <TextInput
-                placeholder="Item Name:"
-                style={styles.inputField}
-                value={itemName}
-                onChangeText={(text) => setItemName(text)}
-              />
-            </View>
-            <View style={styles.inputColumn}>
-              <TextInput
-                placeholder="Item Code:"
-                style={styles.inputField}
-                value={itemCode}
-                onChangeText={(text) => setItemCode(text)}
-              />
-            </View>
-            <View style={styles.inputColumn}>
-              <TextInput
-                placeholder="Price:"
-                style={styles.inputField}
-                value={itemCode}
-                onChangeText={(text) => setPrice(text)}
-                keyboardType="numeric"
+        <ScrollView style={styles.startliveScroll}>
+          <View style={styles.MotherHeader}>
+            <Text style={styles.header}> New item </Text>
+            <View style={styles.selectCateg}>
+              <Text style={styles.setCateg}>Select Categories </Text>
+              <Icon
+                name="navigate-next"
+                size={30}
+                color={"white"}
+                style={{ marginLeft: -5, marginTop: -5 }}
               />
             </View>
           </View>
-        </View>
+
+          <View style={styles.items}>
+            <View style={styles.itemCateg}>
+              <Text style={styles.itemText}>Item Category</Text>
+              <Icon
+                name="chevron-right"
+                size={30}
+                color={"white"}
+                style={{ marginTop: -5 }}
+              />
+            </View>
+            <View sylte={styles.itemInput}>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Item Name:"
+                  style={styles.inputField}
+                  value={itemName1}
+                  onChangeText={(text) => setItemName1(text)}
+                />
+              </View>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Item Code:"
+                  style={styles.inputField}
+                  value={itemCode1}
+                  onChangeText={(text) => setItemCode1(text)}
+                />
+              </View>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Price:"
+                  style={styles.inputField}
+                  value={itemPrice1}
+                  onChangeText={(text) => setPrice1(text)}
+                  keyboardType="numeric"
+                />
+              </View>
+            </View>
+            <View style={styles.itemCateg}>
+              <Text style={styles.itemText}>Item Category</Text>
+              <Icon
+                name="chevron-right"
+                size={30}
+                color={"white"}
+                style={{ marginTop: -5 }}
+              />
+            </View>
+            <View sylte={styles.itemInput}>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Item Name:"
+                  style={styles.inputField}
+                  value={itemName2}
+                  onChangeText={(text) => setItemName2(text)}
+                />
+              </View>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Item Code:"
+                  style={styles.inputField}
+                  value={itemCode2}
+                  onChangeText={(text) => setItemCode2(text)}
+                />
+              </View>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Price:"
+                  style={styles.inputField}
+                  value={itemPrice2}
+                  onChangeText={(text) => setPrice2(text)}
+                  keyboardType="numeric"
+                />
+              </View>
+            </View>
+            <View style={styles.itemCateg}>
+              <Text style={styles.itemText}>Item Category</Text>
+              <Icon
+                name="chevron-right"
+                size={30}
+                color={"white"}
+                style={{ marginTop: -5 }}
+              />
+            </View>
+            <View sylte={styles.itemInput}>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Item Name:"
+                  style={styles.inputField}
+                  value={itemName3}
+                  onChangeText={(text) => setItemName3(text)}
+                />
+              </View>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Item Code:"
+                  style={styles.inputField}
+                  value={itemCode3}
+                  onChangeText={(text) => setItemCode3(text)}
+                />
+              </View>
+              <View style={styles.inputColumn}>
+                <TextInput
+                  placeholder="Price:"
+                  style={styles.inputField}
+                  value={itemPrice3}
+                  onChangeText={(text) => setPrice3(text)}
+                  keyboardType="numeric"
+                />
+              </View>
+            </View>
+          </View>
+        </ScrollView>
       </View>
       <BottomSheet isOpen>
         {(onScrollEndDrag) => (
@@ -107,9 +189,7 @@ const StartLiveCategories = () => {
               <View style={styles.editItem}>
                 <Text style={styles.edit}>Edit Items</Text>
               </View>
-              <TouchableOpacity
-                onPress={proceedToLive}
-              >
+              <TouchableOpacity onPress={proceedToLive}>
                 <View style={styles.StartLive}>
                   <Text style={styles.textLive}>Start Live</Text>
                 </View>
@@ -137,12 +217,12 @@ bottom:{
     justifyContent: "space-between",
     backgroundColor: "#ffffff",
     elevation: 5,
-    marginTop: -530,
+    marginTop: -60,
     width: 400,
     height: 160,
   },
   hamburger: {
-    marginLeft: 20,
+    marginLeft: 30,
     backgroundColor: "#009EFF",
     height: 40,
     borderRadius: 30,
@@ -158,11 +238,12 @@ bottom:{
   header: {
     fontWeight: "bold",
     fontSize: 20,
-    marginLeft: -10,
+    
   },
   MotherHeader: {
     flexDirection: "row",
-    paddingTop: 20,
+    paddingTop: 10,
+    
   },
   setCateg: {
     fontSize: 15,
@@ -174,7 +255,7 @@ bottom:{
   selectCateg: {
     flexDirection: "row",
     paddingTop: 10,
-    marginLeft: 120,
+    marginLeft: 80,
     backgroundColor: "#009EFF",
     borderRadius: 30,
     height: 40,
@@ -187,6 +268,7 @@ bottom:{
     borderRadius: 30,
     height: 30,
     width: 130,
+    marginLeft: 5,
   },
   itemText: {
     marginLeft: 10,
@@ -215,6 +297,7 @@ bottom:{
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    height: 55,
   },
   editItem: {
     backgroundColor: "#00E7FF",
@@ -242,5 +325,8 @@ bottom:{
     color: "white",
     margin:10,
   },
+  startliveScroll:{
+    marginBottom: 55,
+  }
 });
 export default StartLiveCategories;

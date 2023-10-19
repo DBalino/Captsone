@@ -16,7 +16,7 @@ const CustomDrawer = (props) => {
         <DrawerContentScrollView {...props} contentContainerStyle={{backgroundColor:'#5F1C1C'}}>
         <ImageBackground source={require('../../assets/gradient.png')} style={{padding:20,}}>
             <Image source={require('../../assets/profile.png')}style={{height:90,width:90,borderRadius:40,marginBottom:20,justifyContent:'center',alignContent:'center'}}/>
-            <Text style={{color:'#ffff', fontSize:18}}>username</Text>
+            <Text style={{color:'#ffff', fontSize:18}}>Ralph Lucero Delasal IV</Text>
             </ImageBackground>
 
             <View style={{flex:1, backgroundColor:'#ffff', paddingTop:10}}>

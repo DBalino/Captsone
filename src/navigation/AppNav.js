@@ -15,8 +15,7 @@ import Messages from "../screens/Messages";
 import ChatScreen from "../screens/ChatScreen";
 import StartLiveCategories from "../screens/SetLiveCategories";
 import SellerLive from "../screens/SellerLive";
-// fix additional screens navigation 
-
+// fix additional screens navigation    <Stack.Screen options={{headerShown: false}} name="Auth Stack" component={AuthStack}/>
 
 const Stack = createStackNavigator();
 function AppNav(){
@@ -24,7 +23,7 @@ function AppNav(){
 
     <NavigationContainer>
         <Stack.Navigator>
-            <Stack.Screen options={{headerShown: false}} name="Auth Stack" component={AuthStack}/>
+           
             <Stack.Screen options={{headerShown: false}} name="App Stack" component={AppStack} />
             <Stack.Screen options={{headerShown: false}} name="My Shop" component={Myshop} />
             <Stack.Screen options={{headerShown: false}} name="Live Section" component={LiveSection} />

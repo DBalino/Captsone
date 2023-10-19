@@ -36,7 +36,7 @@ const Login = ({ navigation }) => {
     }
 
     try {
-      const response = await axios.post("http://192.168.100.193:8800/login", {
+      const response = await axios.post("http://192.168.68.128:8800/login", {
         username: username,
         password: password,
       });
